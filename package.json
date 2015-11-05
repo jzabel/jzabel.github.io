@@ -1,0 +1,51 @@
+{
+  "name": "homepage",
+  "description": "My personal homepage.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jzabel/homepage",
+  "author": {
+    "name": "Jeff Zabel",
+    "url": "http://github.com/jzabel/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jzabel/homepage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jzabel/homepage/issues"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "scripts": {
+    "test": "grunt assemble"
+  },
+  "devDependencies": {
+    "assemble": "^0.4.42",
+    "assemble-contrib-permalinks": "*",
+    "assemble-contrib-sitemap": "*",
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^0.6.0",
+    "time-grunt": "^1.0.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jzabel/homepage/blob/master/LICENSE-MIT"
+    }
+  ],
+  "keywords": [
+    "assemble",
+    "templates",
+    "handlebars",
+    "site generator",
+    "site builder",
+    "grunt"
+  ]
+}
