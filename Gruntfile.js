@@ -120,13 +120,18 @@ module.exports = function(grunt) {
         cwd: 'bower_components/bootstrap/dist/js/',
         src: '**',
         dest: '<%= config.dist %>/assets/js/'
+      },
+      cname: {
+        src: 'CNAME',
+        dest: '<%= config.dist %>/CNAME'
       }
     },
 
     // Create the ability to deploy our site (the dist folder) to github pages
     'gh-pages': {
       options: {
-        base: 'dist'
+        base: 'dist',
+        branch: 'master'
       },
       src: ['**']
     },
