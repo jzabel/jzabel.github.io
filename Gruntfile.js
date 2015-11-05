@@ -123,6 +123,14 @@ module.exports = function(grunt) {
       }
     },
 
+    // Create the ability to deploy our site (the dist folder) to github pages
+    'gh-pages': {
+      options: {
+        base: 'dist'
+      },
+      src: ['**']
+    },
+
     // Before generating any new files,
     // remove any previously-created files.
     clean: ['<%= config.dist %>/**/*.{html,xml,css,eot,map,svg,ttf,woff,js,txt}']
@@ -132,6 +140,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-gh-pages');
 
   grunt.registerTask('server', [
     'build',
