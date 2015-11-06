@@ -1,29 +1,29 @@
-/*
-@gray-darker:            darken(#646A73, 13.5%); // #222
-@gray-dark:              lighten(#000, 20%);   // #333
-@gray-dark:              #646A73;
-@gray:                   lighten(#646A73, 33.5%); // #555
-@gray-light:             lighten(#646A73, 46.7%); // #777
-@gray-lighter:           lighten(#646A73, 93.5%); // #eee
-*/
+@import "variables.less";
+
 body {
   padding-top: 70px;
   padding-bottom: 30px;
+
+  // Reduce the default font weight to 300
+  p {
+    font-weight: 300;
+  }
 }
-body p {
-  font-weight: 300;
-}
+
 .theme-dropdown .dropdown-menu {
   position: static;
   display: block;
   margin-bottom: 20px;
 }
+
 .theme-showcase > p > .btn {
   margin: 5px 0;
 }
+
 .theme-showcase .navbar .container {
   width: auto;
 }
+
 .main-heading {
   font-size: 3em;
   font-weight: 300;
@@ -31,17 +31,22 @@ body p {
   line-height: 1.5em;
   text-transform: uppercase;
 }
+
 .uppercase {
   text-transform: uppercase;
 }
+
 .logo {
   text-transform: uppercase;
-  color: #3c948b;
+  color: @brand-primary;
   font-size: 48px;
-  border-bottom: 5px solid #ffffff;
+  border-bottom: 5px solid @white;
   padding: 0px;
   margin-left: 15px;
 }
-.social-icons i {
-  padding-left: 8px;
+
+.social-icons {
+  i {
+    padding-left: 8px;
+  }
 }

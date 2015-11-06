@@ -33,6 +33,10 @@ module.exports = function(grunt) {
         files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
         tasks: ['assemble']
       },
+      build_css: {
+        files: ['<%= config.src %>/templates/assets/{,*/}*.less'],
+        tasks: ['build_css']
+      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -90,10 +94,10 @@ module.exports = function(grunt) {
       },
       jeffzabel: {
         options: {
-          paths: '<%= config.src %>/assets/less'
+          paths: ['<%= config.src %>/templates/assets/less', 'bower_components/bootstrap/less']
         },
         files: {
-          '<%= config.dist %>/assets/css/jeffzabel.css': '<%= config.src %>/assets/less/jeffzabel.less'
+          '<%= config.dist %>/assets/css/jeffzabel.css': '<%= config.src %>/templates/assets/less/jeffzabel.less'
         }
       }
     },
@@ -111,7 +115,7 @@ module.exports = function(grunt) {
     copy: {
       bootstrap_variables: {
         expand: true,
-        cwd: '<%= config.src %>/assets/bootstrap/',
+        cwd: '<%= config.src %>/templates/assets/bootstrap/',
         src: '**',
         dest: 'bower_components/bootstrap/less/'
       },
@@ -138,7 +142,10 @@ module.exports = function(grunt) {
 
     // Before generating any new files,
     // remove any previously-created files.
-    clean: ['<%= config.dist %>/**/*.{html,xml,css,eot,map,svg,ttf,woff,js,txt}']
+    clean: {
+      build: ['<%= config.dist %>/**/*.{html,xml,css,eot,map,svg,ttf,woff,js,txt}'],
+      css: ['<%= config.dist %>/**/*.{css}']
+    },
 
   });
 
@@ -154,15 +161,27 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'clean',
+    'clean:build',
     'copy',
     'less',
     'cssmin',
     'assemble'
   ]);
 
+  grunt.registerTask('build_css', [
+    'clean:css',
+    'copy',
+    'less',
+    'cssmin'
+  ]);
+
   grunt.registerTask('default', [
     'build'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'build',
+    'gh-pages'
   ]);
 
 };
