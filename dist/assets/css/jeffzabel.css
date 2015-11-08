@@ -45,3 +45,8 @@ body p {
 .social-icons i {
   padding-left: 8px;
 }
+@media (max-width: 480px) {
+  body .main-heading {
+    font-size: 2.5em;
+  }
+}
